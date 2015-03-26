@@ -1,51 +1,79 @@
 package lab4;
 
-public class StringList {
+//import java.io.*;
+
+public class StringList 
+{
 	
 	int lenght = 0;
 	ListNode base = null;
 	ListNode last = null;
 	
-	public StringList () { // no-arg constructor
+	public StringList() 
+	{ 
+		// no-arg constructor
 	} 
+	
+	public StringList(String s)
+	{
+		insert(s);
+	}
 
-	public void insert(String s) {
+	public void insert(String s)
+	{
 		ListNode aux = new ListNode();
 		aux.s = s;
 		
 		if(base == null)
 		{
-			base.next = aux;
+			base = aux;
+			last = aux;
 		}
-		
-		last.next = aux;
+		else
+		{
+			last.next = aux;
+		}		
+		last = aux;
 		aux = null;
 		lenght++;
 	} 
 	
-	public int remove(String s) {
+	public int remove(String s) 
+	{
 		int removed = 0;  
 		
-		while(!(base.s.equals(s)) && base != null)
+		while(base.s.equals(s) && base != null)
 		{
 			base = base.next;
+			removed++;
 		}
 		
 		ListNode aux = base;
-		ListNode aux2 = null;
 		
 		while(aux != null)
 		{
-			if(aux.next.s.equals(s)) // não queremos comparar as posições de
-			// memória, mas sim ver se as strings são iguais
+			if(aux.next == null)
 			{
-				aux2 = aux.next.next;
-				aux.next = aux2;
+				break;
+			}
+			if(aux.next.s.equals(s)) // nÃ£o queremos comparar as posiÃ§Ãµes de
+			// memÃ³ria, mas sim ver se as strings sÃ£o iguais
+			{
+				if(aux.next.next != null)
+				{
+					aux.next = aux.next.next;
+				}
+				else
+				{
+					last = aux;
+					aux.next = null;
+				}
+				
 				removed++;
 			}
 			else
 			{
-				aux = aux2;
+				aux = aux.next;
 			}
 		}		
 		
@@ -77,9 +105,21 @@ public class StringList {
 		return liststring;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
+		System.out.println("lab4444");
+		
+		StringList SL = new StringList("carro");
+		
+		//SL.insert("amendoa");
+		//SL.insert("programa");
+		//SL.remove("programa");
+		//SL.insert("em 4K!");
+		
+		System.out.println(SL.toString());
+		System.out.println(SL.lenght());
+			
 		// TODO Auto-generated method stub
 	}
 
 }
-
