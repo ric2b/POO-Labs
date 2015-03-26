@@ -25,6 +25,12 @@ public class StringList {
 	
 	public int remove(String s) {
 		int removed = 0;  
+		
+		while(!(base.s.equals(s)) && base != null)
+		{
+			base = base.next;
+		}
+		
 		ListNode aux = base;
 		ListNode aux2 = null;
 		
@@ -47,12 +53,28 @@ public class StringList {
 		return removed;
 	} 
 	
-	public int lenght() {
+	public int lenght() 
+	{
 		return lenght;
 	} 
 	
-	public void toString() {
-
+	public String toString() 
+	{
+		ListNode aux = base;
+		String liststring = "{";
+		
+		while(aux != null)
+		{
+			liststring = listsring + aux.s;
+			if(aux.next != null){
+				liststring += ",";	
+			}
+			aux = aux.next;
+		}
+	
+		listsring += "}";
+		
+		return liststring;
 	}
 	
 	public static void main(String[] args) {
