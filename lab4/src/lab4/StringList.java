@@ -65,14 +65,14 @@ public class StringList {
 		
 		while(aux != null)
 		{
-			liststring = listsring + aux.s;
+			liststring = liststring + aux.s;
 			if(aux.next != null){
 				liststring += ",";	
 			}
 			aux = aux.next;
 		}
 	
-		listsring += "}";
+		liststring += "}";
 		
 		return liststring;
 	}
