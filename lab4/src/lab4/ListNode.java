@@ -2,10 +2,10 @@ package lab4;
 
 class ListNode {
 	
-	String s = null; // referência a um objecto string, 
-	// não cria o objecto, apenas a referência
-	ListNode next = null; // referência a um objecto ListNode. não é public,
-	// é package e assim a outra classe pode aceder
+	String s = null; // referencia a um objecto string, 
+	// nao cria o objecto, apenas a referencia
+	ListNode next = null; // referencia a um objecto ListNode. nao � public,
+	// � package e assim a outra classe pode aceder
 		
 	public ListNode() {
 	} 
