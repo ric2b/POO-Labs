@@ -6,21 +6,21 @@ public class Corporation extends StockOwner {
 	
 	float CompanyValue;
 	int numberShares = 0;
-	LinkedList <Share> companyShares = new LinkedList <Share>();
+	public LinkedList <Share> companyShares = new LinkedList <Share>();
 	
-	public Corporation (float CompanyValueArg, float StartingMoneyArg)
+	public Corporation (float CompanyValueArg, float StartingMoneyArg, String CompanyNameArg)
 	{
-		super(StartingMoneyArg);
+		super(StartingMoneyArg, CompanyNameArg);
 		CompanyValue = CompanyValueArg;
 	}
 	
-	public Share createShare()
+	public void createShare()
 	{
 		Share newShare = new Share(this);
 		companyShares.add(newShare);
 		numberShares++;
-		return newShare;
 	}
+	
 	public float getShareValue()
 	{		
 		return CompanyValue/numberShares;

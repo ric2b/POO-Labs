@@ -11,4 +11,9 @@ public class StockMarket {
 		
 	}
 	
+	public void createCorporation(float CompanyValueArg, float StartingMoneyArg, String CompanyNameArg)
+	{
+		corporations.add(new Corporation(CompanyValueArg, StartingMoneyArg, CompanyNameArg));
+	}
+	
 }

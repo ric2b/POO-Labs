@@ -5,11 +5,13 @@ import java.util.LinkedList;
 public class StockOwner {
 
 	float money;
-	LinkedList <Share> ownedShares = new LinkedList <Share>();
+	public LinkedList <Share> ownedShares = new LinkedList <Share>();
+	String StockOwnerName;
 	
-	public StockOwner(float StartingMoneyArg)
+	public StockOwner(float StartingMoneyArg, String StockOwnerNameArg)
 	{
 		money = StartingMoneyArg;
+		StockOwnerName = StockOwnerNameArg;
 	}
 	
 	public void buyShare(Share buyableShare)
@@ -24,5 +26,10 @@ public class StockOwner {
 	{
 		money += sellableShare.getParentCompany().getShareValue();
 		ownedShares.remove(sellableShare);
+	}
+	
+	public String getName()
+	{		
+		return StockOwnerName;
 	}
 }
